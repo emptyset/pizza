@@ -60,10 +60,6 @@ namespace Refactoring
 		public string ProductName;
 		public decimal Price;
 
-		// TODO: review error handling on nullable types
-		public decimal? Weight;
-		public int? Quantity;
-
 		protected abstract String descriptionFormat { get; }
 		public abstract String Description { get; }
 
@@ -71,6 +67,8 @@ namespace Refactoring
 	}
 
 	public class WeighedProductItem : ProductItem {
+		// TODO: review error handling on nullable types
+		public decimal? Weight;
 		protected override String descriptionFormat { get { return "{0} {1:C} ({2} pounds at {3:C} per pound)"; } }
 		public override String Description {
 			get {
@@ -84,6 +82,8 @@ namespace Refactoring
 	}
 
 	public class UnitProductItem : ProductItem {
+		// TODO: review error handling on nullable types
+		public int? Quantity;
 		protected override String descriptionFormat { get { return "{0} {1:C} ({2} items at {3:C} each)"; } }
 		public override String Description {
 			get {
